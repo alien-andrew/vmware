@@ -1,9 +1,19 @@
-FROM python:3.8.0
-COPY requirements.txt /
-RUN pip install --upgrade pip && pip install -r /requirements.txt
-COPY . /build
-WORKDIR /build
+FROM python:3.9.2-alpine3.13
 
+# Copy files necessary for build
+COPY requirements.txt / 
+
+# Perform build and cleanup artifacts and caches
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+COPY . /docs
+# Set working directory
+WORKDIR /docs
+
+# Expose MkDocs development server port
 EXPOSE 8000
-CMD ["mkdocs", "serve"]
 
+# Start development server by default
+ENTRYPOINT ["mkdocs"]
+CMD ["serve", "--dev-addr=0.0.0.0:8000"]
