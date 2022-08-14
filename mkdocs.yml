@@ -1,0 +1,30 @@
+site_url: http://lab.carcinize.com
+site_name: VMWare Training
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.inlinehilite
+extra_css:
+  - stylesheets/extra.css
+theme:
+  logo: /img/vmware_logo.png
+  name: material
+  font:
+    text: Roboto
+  palette:
+    scheme: default
+  features:
+    - toc.integrate
+    - navigation.tabs
+plugins:
+  - search
+nav:
+  - Kubernetes:
+     - Introduction: index.md
+     - Kubernetes Pods: pods.md
+     - Kubernetes Networking: networking.md
+
