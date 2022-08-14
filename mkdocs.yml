@@ -10,6 +10,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/admon.css
 theme:
   logo: /img/vmware_logo.png
   name: material
