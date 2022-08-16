@@ -6,7 +6,7 @@
 
 ## Introduction to Pod Networking
 
-![type:video](https://www.youtube.com/embed/-ek3Xajmsoo)
+![type:video](https://www.youtube.com/embed/MWxKY-I3veI)
 
 ## Log-in to the lab
 
@@ -133,7 +133,7 @@ the connection from one Pod to another.
 
 ## Conclusions and Questions
 
-![type:video](https://conclusion-video-pod-networking.com)
+![type:video](https://youtube.com/embed/odvfHdlIxlk)
 
 * In Kubernetes, all Pods can communicate to all other Pods in the cluster by default
 * A Kubernetes node cannot directly communicate to Pod by its IP address

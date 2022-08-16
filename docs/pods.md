@@ -1,25 +1,14 @@
 # Kubernetes Pods 
 
-## Log-in to the lab
-
-!!! Instructions
-
-    1. Open a Terminal and SSH into the lab
-         
-	 - Username: student
-	 - Hostname: lab.carcinize.com
-	 - Password: k8svmware
-
-    ``` bash
-    ssh student@lab.carcinize.com
-    ```
+Sample Chapter about Kubernetes Pods. 
+Topics listed are just examples
 
 ## Introduction to Pods
 
-!!! Instructions
+## Creating a Pod using kubectl
 
-    1. Lo
+## Creating a Pod using a Manifest
 
-## Creating a Pod
+## Things that Manage Pods
 
-## 
+## Deployments 
