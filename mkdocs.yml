@@ -31,5 +31,7 @@ nav:
      - 1. Kubernetes Pods: pods.md
      - 2. Pod Networking: networking.md
      - 3. Service Networking: service-networking.md
+  - Advanced:
+     - 1. Network Plugins: plugins.md
   - Contact:
      - Contact Us: contact.md

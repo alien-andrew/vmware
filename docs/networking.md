@@ -131,5 +131,16 @@ the connection from one Pod to another.
     -no body in request-
     ```
 
- 
+## Conclusions and Questions
 
+![type:video](https://conclusion-video-pod-networking.com)
+
+* In Kubernetes, all Pods can communicate to all other Pods in the cluster by default
+* A Kubernetes node cannot directly communicate to Pod by its IP address
+* Should applications be written to talk directly to Pod IP? 
+* Should all pods have access to all other pods?
+
+## References
+
+* [Kubernetes Networking Model](https://kubernetes.io/docs/concepts/services-networking/)
+* [Kubernetes Network Plugins](plugins.md)

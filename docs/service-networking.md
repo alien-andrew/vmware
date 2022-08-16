@@ -1,75 +1,70 @@
-# Introduction to Networking
+# Kubernetes Services
 
-## Pod Networking
+## Pre-requisites
+
+[Kubernetes Pods](networking.md)
+
+## Introduction to Services
 
 ![type:video](https://www.youtube.com/embed/-ek3Xajmsoo)
 
-### Log-in to the lab
+## Log-in to the lab
+
+For this chapter, you will need to be logged in to the 
+**lab.carcinize.com** host. If you are already logged-in 
+to the lab from previous exercise, proceed to: [Create a Pod](networking.md#create-a-pod)
 
 !!! Instructions 
 
     1. Open a Terminal and SSH into the lab
 
-         - ** Username ** : student
-         - ** Hostname ** : lab.carcinize.com
-         - ** Password ** : k8svmware
+          - ** Username ** : student
+          - ** Hostname ** : lab.carcinize.com
+          - ** Password ** : k8svmware
     
-    ``` bash
-    ssh student@lab.carcinize.com 
-    ```
+          ``` bash
+          ssh student@lab.carcinize.com 
+          ```
 
-### Create a Pod
+## Create a Service
 
 !!! Instructions
  
-    1. Run the `kubectl` command to create a Pod
+    1. Run the following `kubectl` command to create a Service
 
-    ``` bash
-    kubectl apply -f ~/k8s/pod.yaml 
-    ```
+          ``` bash
+          kubectl apply -f ~/k8s/pod1-service.yaml 
+          ```
 
-    2. Check the Pod Status 
+    2. Take a look at the created service
+ 
+          ``` bash
+          kubectl describe service pod1-svc
+          ```
 
-    ``` bash
-    kubectl get pod
-    ```
+    Note the following: 
 
-    3. Wait for the Pod STATUS to indicate **Running**
+    - **IP**: ClusterIP Address of the Service
+    - **Port**: Access port for the ClusterIP 
+    - **TargetPort**: Port of the Pod that the service forwards traffic to
+    - **Endpoints**: Pods that match the label selector of the service, thus traffic will be forwarded to one of the Endpoints
 
-### Review Network Details
-
-!!! Instructions
-
-    1. Run the following command to query for the Pod's IP Address
-    ``` bash
-    kubectl get pod -o wide
-    ```
-
-    2. You can also use the `jq` to parse the json output.
-    Run the following command to save the PodIP as an environment variable:
-    ``` bash
-    podip=$(kubectl get po -ojson | jq -r ".items[].status.podIP")
-    ```
-
-    3. Check the variable to ensure it has been set:
-    ``` bash
-    echo $podip
-    ```
-    
-    Output above should match the IP address of the pod from 
-    `kubectl get pod -o wide`
-
-### Pod Access using Curl
+## Check Reachability to Service
 
 !!! Instructions
 
-    1. Issue a `curl` command to the Pod IP address
-    ``` bash
-    curl --connect-timeout 5 $podip 
-    ```
+    1. Run the curl command from Pod 2 and target the ClusterIP:8080 address. Replace 
+    the ClusterIP with the output from [Create a Service](service-networking.md#create-a-service)
 
-    Does the curl command return with an output?
+          ``` bash
+          kubectl exec echoserver-2 -- curl "ClusterIP:8080"
+          ```
 
-## Service Networking
+## Conclusions and Questions
 
-Service Network content
+![type:video](https://conclusion-video-pod-networking.com)
+
+
+## References
+
+* [Kubernetes Networking Model](https://kubernetes.io/docs/concepts/services-networking/)
