@@ -32,16 +32,16 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
  
     1. Run the `kubectl` command to create a Pod
 
-    ``` bash
-    kubectl apply -f ~/k8s/pod1.yaml 
-    ```
+          ``` bash
+          kubectl apply -f ~/k8s/pod1.yaml 
+          ```
 
     2. Check the Pod Status 
 
-    ``` bash
-    kubectl get pod
-    ```
-
+          ``` bash
+          kubectl get pod
+          ```
+   
     3. Wait for the Pod STATUS to indicate **Running**
 
 ### Review Network Details
@@ -49,21 +49,24 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
 !!! Instructions
 
     1. Run the following command to query for the Pod's IP Address
-    ``` bash
-    kubectl get pod -o wide
-    ```
+
+          ``` bash
+          kubectl get pod -o wide
+          ```
 
     2. You can also use the `jq` command to parse the json output.
     Run the following command to save the PodIP as an environment variable:
-    ``` bash
-    podip=$(kubectl get po -ojson | jq -r ".status.podIP")
-    ```
+
+          ``` bash
+          podip=$(kubectl get po -ojson | jq -r ".status.podIP")
+          ```
 
     3. Check the variable to ensure it has been set:
-    ``` bash
-    echo $podip
-    ```
-    
+
+          ``` bash
+          echo $podip
+          ```
+       
     Output above should match the IP address of the pod from 
     `kubectl get pod -o wide`
 
@@ -72,11 +75,11 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
 !!! Instructions
 
     1. Issue a `curl` command to the Pod IP address
-    ``` bash
-    curl --connect-timeout 5 $podip 
-    ```
+          ``` bash
+          curl --connect-timeout 5 $podip 
+          ```
 
-    Does the curl command return with an output?
+    2. Does the curl command return with an output?
 
 ## Create a Second Pod
 
@@ -88,23 +91,23 @@ the connection from one Pod to another.
 
     1. Create a second Pod
     
-    ``` bash
-    kubectl apply -f ~/k8s/pod2.yaml
-    ```
+          ``` bash
+          kubectl apply -f ~/k8s/pod2.yaml
+          ```
  
     2. Start an interactive bash session in the second Pod
 
-    ``` bash
-    kubectl exec -it echoserver-2 /bin/bash
-    ```
+          ``` bash
+          kubectl exec -it echoserver-2 /bin/bash
+          ```
 
     3. Issue a curl command to the first Pod (echoserver-1)
     Replace `pod1IP` with the address you gathered from 
     [Network Details](networking.md#review-network-details)
 
-    ``` bash
-    curl pod1IP:8080
-    ```
+          ``` bash
+          curl pod1IP:8080
+          ```
  
     **Expected Output**
 
