@@ -91,8 +91,8 @@ to the lab from previous exercise, proceed to: [Create a Service](service-networ
           kubectl get svc pod1-svc -ojson | jq ".spec.selector"
           ```
 
-    The selector is "app": "pod1". We can label a Pod using the `kubectl` command or 
-    change the Pod manifest yaml file.
+          The selector is "app": "pod1". We can label a Pod using the `kubectl` command or 
+          change the Pod manifest yaml file.
 
     2. Run the following command to label a running Pod
 
@@ -103,7 +103,7 @@ to the lab from previous exercise, proceed to: [Create a Service](service-networ
     3. Check the Pod labels
 
           ``` bash
-	  kubectl get pods --show-labels
+          kubectl get pods --show-labels
           ```
 
     4. Obtain the clusterIP of the service and save it in an environment variable for 
@@ -140,6 +140,11 @@ to the lab from previous exercise, proceed to: [Create a Service](service-networ
 
 ![type:video](https://conclusion-video-pod-networking.com)
 
+* Services are used as a stable 'frontend' for Pods (even for Databases)
+* Pods must have labels corresponding to Service's selectors
+* Service type ClusterIP is for intra-cluster traffic
+* Service type NodePort is for external traffic
+* 
 
 ## References
 
