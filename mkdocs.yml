@@ -21,11 +21,15 @@ theme:
   features:
     - toc.integrate
     - navigation.tabs
+    - navigation.tracking
 plugins:
   - search
+  - mkdocs-video
 nav:
   - Kubernetes:
      - Introduction: index.md
-     - Kubernetes Pods: pods.md
-     - Kubernetes Networking: networking.md
-
+     - 1. Kubernetes Pods: pods.md
+     - 2. Pod Networking: networking.md
+     - 3. Service Networking: service-networking.md
+  - Contact:
+     - Contact Us: contact.md

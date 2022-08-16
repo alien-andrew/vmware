@@ -1,14 +1,10 @@
-# Pod Networking
+# Introduction to Networking
 
-## Introduction to Pod Networking
+## Pod Networking
 
 ![type:video](https://www.youtube.com/embed/-ek3Xajmsoo)
 
-## Log-in to the lab
-
-For this chapter, you will need to be logged in to the 
-**lab.carcinize.com** host. If you are already logged-in 
-to the lab from previous exercise, proceed to: [Create a Pod](networking.md#create-a-pod)
+### Log-in to the lab
 
 !!! Instructions 
 
@@ -22,7 +18,7 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
     ssh student@lab.carcinize.com 
     ```
 
-## Create a Pod
+### Create a Pod
 
 !!! Instructions
  
@@ -49,7 +45,7 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
     kubectl get pod -o wide
     ```
 
-    2. You can also use the `jq` command to parse the json output.
+    2. You can also use the `jq` to parse the json output.
     Run the following command to save the PodIP as an environment variable:
     ``` bash
     podip=$(kubectl get po -ojson | jq -r ".items[].status.podIP")
@@ -74,13 +70,6 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
 
     Does the curl command return with an output?
 
-## Create a Second Pod
+## Service Networking
 
-We know that Kubernetes Networking model allows for Pod to Pod 
-communication by default. Let's create another Pod to test 
-the connection from one Pod to another.
-
-!!! Instructions
-
-    1. 
-
+Service Network content

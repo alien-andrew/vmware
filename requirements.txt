@@ -1,5 +1,6 @@
 mkdocs
 mkdocs-material
+mkdocs-video
 pygments
 pymdown-extensions
 mkdocs-enumerate-headings-plugin
