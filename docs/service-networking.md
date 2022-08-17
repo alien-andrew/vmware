@@ -2,11 +2,11 @@
 
 ## Pre-requisites
 
-[Kubernetes Pods](networking.md)
+[Pod Networking](networking.md)
 
 ## Introduction to Services
 
-![type:video](https://www.youtube.com/embed/-ek3Xajmsoo)
+![type:video](https://www.youtube.com/embed/3yiyMfYo_n8)
 
 ## Log-in to the lab
 
@@ -135,6 +135,23 @@ to the lab from previous exercise, proceed to: [Create a Service](service-networ
     request_version=1.1
     request_uri=http://< ClusterIP >:8080/
     ```
+
+## Check Reachability by Service Name
+
+Even better than IP address (unknown until after creation), you can use 
+the domain name of the Service (Service name in the manifest)!
+
+!!! Instructions
+
+    1. Run the curl command from Pod 2 to check for reachability to pod1-svc:8080 
+
+          ``` bash
+          kubectl exec echoserver-2 -- curl pod1-svc:8080
+          ```
+
+## NodePort Service
+
+## 
 
 ## Conclusions and Questions
 

@@ -81,6 +81,14 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
 
     2. Does the curl command return with an output?
 
+!!! note
+
+    In our environment, we are using `kind` which runs 
+    Kubernetes in a Docker container. While in most 
+    deployments, Pods should be directly reachable from 
+    the node it is running on, it does not work the same 
+    way in this environment.
+
 ## Create a Second Pod
 
 We know that Kubernetes Networking model allows for Pod to Pod 
@@ -133,10 +141,9 @@ the connection from one Pod to another.
 
 ## Conclusions and Questions
 
-![type:video](https://youtube.com/embed/odvfHdlIxlk)
+![type:video](https://youtube.com/embed/cT4geQAAZ4E)
 
 * In Kubernetes, all Pods can communicate to all other Pods in the cluster by default
-* A Kubernetes node cannot directly communicate to Pod by its IP address
 * Should applications be written to talk directly to Pod IP? 
 * Should all pods have access to all other pods?
 
