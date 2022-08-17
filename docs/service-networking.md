@@ -201,7 +201,7 @@ issue the curl command to the node port.
 
 ## Conclusions and Questions
 
-![type:video](https://conclusion-video-pod-networking.com)
+![type:video](https://youtube.com/embed/XxBy48Ru9AU)
 
 * Services are used as a stable 'frontend' for Pods (even for Databases)
 * Pods must have labels corresponding to Service's selectors
