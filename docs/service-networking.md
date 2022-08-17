@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-[Pod Networking](networking.md)
+* [Pod Networking](networking.md)
 
 ## Introduction to Services
 
@@ -151,7 +151,53 @@ the domain name of the Service (Service name in the manifest)!
 
 ## NodePort Service
 
-## 
+!!! Instructions
+
+    1. Delete the `pod1-svc` 
+          ``` bash
+          kubectl delete svc pod1-svc
+          ```
+
+    2. Create a NodePort type service from the provided manifest
+          ``` bash
+          kubectl apply -f ~/k8s/node-service.yaml
+          ```
+
+    3. Get the details for the new service
+
+          ``` bash
+          kubectl describe svc node-svc
+          ```
+
+    4. Create a deployment which will be served by the `node-svc`
+          ``` bash
+          kubectl apply -f ~/k8s/pod-deployment.yaml
+          ```
+
+## Testing Reachability
+
+Unfortunately our `kind` Kubernetes cluster is not so 
+kind when it comes to showcasing a typical network setup. 
+
+We will 'login' to the real Kubernetes in Docker host then 
+issue the curl command to the node port. 
+
+!!! Instructions
+
+    1. Log-in to the `kind-control-plane` Docker container
+          ``` bash
+          docker exec -it kind-control-plane /bin/bash
+          ```
+
+    2. Issue the `curl` command to `localhost` on port `30001`
+          ``` bash
+          curl localhost:30001
+          ```
+    ** Expected Output **
+    
+    ``` bash
+    You've hit pod-deployment-xxx-yyy
+    ```
 
 ## Conclusions and Questions
 
@@ -161,7 +207,6 @@ the domain name of the Service (Service name in the manifest)!
 * Pods must have labels corresponding to Service's selectors
 * Service type ClusterIP is for intra-cluster traffic
 * Service type NodePort is for external traffic
-* 
 
 ## References
 

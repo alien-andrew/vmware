@@ -2,7 +2,7 @@
 
 ## Pre-requisites
 
-[Kubernetes Pods](pods.md)
+* [Kubernetes Pods](pods.md)
 
 ## Introduction to Pod Networking
 
@@ -58,7 +58,7 @@ to the lab from previous exercise, proceed to: [Create a Pod](networking.md#crea
     Run the following command to save the PodIP as an environment variable:
 
           ``` bash
-          podip=$(kubectl get po -ojson | jq -r ".status.podIP")
+          podip=$(kubectl get po echoserver-1 -ojson | jq -r ".status.podIP")
           ```
 
     3. Check the variable to ensure it has been set:
@@ -103,18 +103,11 @@ the connection from one Pod to another.
           kubectl apply -f ~/k8s/pod2.yaml
           ```
  
-    2. Start an interactive bash session in the second Pod
+    2. From `echoserver-2`, issue a `curl` command to `echoserver-1` 
+    on port `8080` 
 
           ``` bash
-          kubectl exec -it echoserver-2 /bin/bash
-          ```
-
-    3. Issue a curl command to the first Pod (echoserver-1)
-    Replace `pod1IP` with the address you gathered from 
-    [Network Details](networking.md#review-network-details)
-
-          ``` bash
-          curl pod1IP:8080
+          kubectl exec -it echoserver-2 -- curl $podip:8080
           ```
  
     **Expected Output**
